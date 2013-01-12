@@ -2,22 +2,17 @@ package app;
 
 import generic.utils.StringUtils;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Dimension {
     private double value = -1;
+    private String id;
+    private Dimension parentDimension = null;
     private Map<String, Dimension> subDimension = new HashMap<>();
-
-    public static void main(String[] args) {
-        Dimension root = new Dimension();
-        root.insertDimension("MPSC", 3);
-        root.insertDimension("Book", 3);
-        root.insertDimension("Job Search.System Design.Coding", 3);
-        root.insertDimension("Job.Work", 3);
-        root.deleteDimension("Job.Work");
-        System.out.println();
-    }
+    private List<Goal> goals = new ArrayList<>();
 
     private void insertDimension(String dimension, double target) {
         if (!StringUtils.isSet(dimension)) {
@@ -87,5 +82,15 @@ public class Dimension {
 
     private void deleteImmediateChild(String childDimension) {
         subDimension.remove(childDimension);
+    }
+
+    public static void main(String[] args) {
+        Dimension root = new Dimension();
+        root.insertDimension("MPSC", 3);
+        root.insertDimension("Book", 3);
+        root.insertDimension("Job Search.System Design.Coding", 3);
+        root.insertDimension("Job.Work", 3);
+        root.deleteDimension("Job.Work");
+        System.out.println();
     }
 }
