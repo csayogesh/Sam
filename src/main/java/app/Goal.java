@@ -44,4 +44,9 @@ public class Goal implements Comparable<Goal> {
     public void setCompletionTime(long completionTime) {
         this.completionTime = completionTime;
     }
+
+    public void markComplete() {
+        completionTime = System.currentTimeMillis();
+        dimension.removeGoal(this);
+    }
 }
