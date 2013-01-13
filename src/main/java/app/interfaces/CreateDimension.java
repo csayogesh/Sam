@@ -7,14 +7,16 @@ public class CreateDimension extends Interface {
 
     public CreateDimension(Dimension dimension) {
         this.dimension = dimension;
+        continueInput = false;
     }
 
     @Override
-    public void takeAction() {
+    public boolean takeAction() {
         System.out.println("Enter Dimension Name: ");
         sc.nextLine();
         String name = sc.nextLine();
         dimension.addDimension(name);
+        return false;
     }
 
     @Override

@@ -18,13 +18,16 @@ public class DimensionInterface extends Interface {
     }
 
     @Override
-    public void takeAction() {
+    public boolean takeAction() {
+        return false;
     }
 
     @Override
     public void displaySpecificMenuOptions() {
         actions.add(new CreateDimension(dimension));
         System.out.println(actions.size() + ": Add Dimension");
+        actions.add(new DeleteDimension(dimension));
+        System.out.println(actions.size() + ": Delete Dimension");
         System.out.println();
 
         List<Dimension> subDims = dimension.getSubDimension();

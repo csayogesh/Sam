@@ -57,4 +57,18 @@ public class Dimension {
                 return subDim;
         return null;
     }
+
+    public boolean deleteDimension() {
+        if (parent == null) {
+            System.out.println("Cannot delete root Dimension");
+            return false;
+        }
+        parent.subDimension.remove(this);
+        try {
+            PersistanceStorage.storeDimensions(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 }

@@ -2,8 +2,8 @@ package app.interfaces;
 
 public class ExitInterface extends Interface {
     @Override
-    public void takeAction() {
-
+    public boolean takeAction() {
+        return false;
     }
 
     @Override
