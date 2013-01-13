@@ -24,11 +24,16 @@ public class Dimension {
     public void addDimension(String dimension) {
         Dimension newDimension = new Dimension(dimension);
         newDimension.parent = this;
+        subDimension.add(newDimension);
     }
 
     public String getId() {
         if (parent != null)
             return parent.getId() + "." + id;
+        return id;
+    }
+
+    public String getRawId() {
         return id;
     }
 
