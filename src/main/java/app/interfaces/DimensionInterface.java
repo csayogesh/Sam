@@ -27,7 +27,11 @@ public class DimensionInterface extends Interface {
         actions.add(new CreateDimension(dimension));
         System.out.println(actions.size() + ": Add Dimension");
         actions.add(new DeleteDimension(dimension));
-        System.out.println(actions.size() + ": Delete Dimension");
+        System.out.println(actions.size() + ": Delete Dimension " + dimension.getId());
+        actions.add(new GoalCreator(dimension));
+        System.out.println(actions.size() + ": Set new goal");
+        actions.add(new SeeGoals(dimension));
+        System.out.println(actions.size() + ": See goals");
         System.out.println();
 
         List<Dimension> subDims = dimension.getSubDimension();

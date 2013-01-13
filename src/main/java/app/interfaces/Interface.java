@@ -16,6 +16,8 @@ public abstract class Interface {
             actions.add(new ExitInterface());
             System.out.println((actions.size()) + ": Exit");
             displaySpecificMenuOptions();
+            if (!continueInput)
+                break;
             int input = sc.nextInt();
             if (input == 1)
                 break;

@@ -37,16 +37,32 @@ public class Goal implements Comparable<Goal> {
         this.dimension = dimension;
     }
 
+    public void markComplete() {
+        completionTime = System.currentTimeMillis();
+        dimension.removeGoal(this);
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public long getDeadline() {
+        return deadline;
+    }
+
     public void setDeadline(long deadline) {
         this.deadline = deadline;
+    }
+
+    public long getCompletionTime() {
+        return completionTime;
     }
 
     public void setCompletionTime(long completionTime) {
         this.completionTime = completionTime;
     }
 
-    public void markComplete() {
-        completionTime = System.currentTimeMillis();
+    public void deleteGoal() {
         dimension.removeGoal(this);
     }
 }

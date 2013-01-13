@@ -71,4 +71,10 @@ public class Dimension {
         }
         return true;
     }
+
+    public void fetchGoals(List<Goal> ls) {
+        ls.addAll(goals);
+        for(Dimension dimension:subDimension)
+            dimension.fetchGoals(ls);
+    }
 }
