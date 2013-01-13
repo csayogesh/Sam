@@ -1,7 +1,9 @@
 package app.interfaces;
 
 import app.Dimension;
+import app.PersistanceStorage;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 public class DimensionInterface extends Interface {
@@ -11,8 +13,8 @@ public class DimensionInterface extends Interface {
         this.dimension = dimension;
     }
 
-    public static void main(String[] args) {
-        new DimensionInterface(new Dimension("root")).handleUserInput();
+    public static void main(String[] args) throws FileNotFoundException {
+        new DimensionInterface(PersistanceStorage.getRootDimension()).handleUserInput();
     }
 
     @Override

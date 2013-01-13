@@ -21,7 +21,7 @@ public class Dimension {
         goals.remove(goal);
     }
 
-    public void addDimension(String dimension) {
+    public Dimension addDimension(String dimension) {
         Dimension newDimension = new Dimension(dimension);
         newDimension.parent = this;
         subDimension.add(newDimension);
@@ -30,6 +30,7 @@ public class Dimension {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return newDimension;
     }
 
     public String getId() {
@@ -48,5 +49,12 @@ public class Dimension {
 
     public Dimension getParent() {
         return parent;
+    }
+
+    public Dimension getMatchingSubDimension(String subDimension) {
+        for (Dimension subDim : this.subDimension)
+            if (subDim.id.equals(subDimension))
+                return subDim;
+        return null;
     }
 }
