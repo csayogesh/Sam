@@ -25,6 +25,11 @@ public class Dimension {
         Dimension newDimension = new Dimension(dimension);
         newDimension.parent = this;
         subDimension.add(newDimension);
+        try {
+            PersistanceStorage.storeDimensions(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public String getId() {
@@ -39,5 +44,9 @@ public class Dimension {
 
     public List<Dimension> getSubDimension() {
         return subDimension;
+    }
+
+    public Dimension getParent() {
+        return parent;
     }
 }

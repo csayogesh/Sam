@@ -21,17 +21,14 @@ public class DimensionInterface extends Interface {
 
     @Override
     public void displaySpecificMenuOptions() {
-        List<Dimension> subDims = dimension.getSubDimension();
+        actions.add(new CreateDimension(dimension));
+        System.out.println(actions.size() + ": Add Dimension");
+        System.out.println();
 
+        List<Dimension> subDims = dimension.getSubDimension();
         for (Dimension dimension : subDims) {
             actions.add(new DimensionInterface(dimension));
             System.out.println(this.actions.size() + ": Select " + dimension.getRawId());
         }
-        System.out.println();
-        actions.add(new CreateDimension(dimension));
-        System.out.println(actions.size() + ": Add Dimension");
-
-//        actions.add(new DeleteDimensionInterface(dimension));
-//        System.out.println(actions.size() + ": Delete Dimension");
     }
 }
